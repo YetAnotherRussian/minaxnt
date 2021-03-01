@@ -9,7 +9,7 @@ import (
 	"strings"
 	"sync"
 	"time"
-
+	"math/big"
 	"github.com/alitto/pond"
 	"github.com/dustin/go-humanize"
 	"github.com/google/uuid"
@@ -50,7 +50,7 @@ func NewClient(clientName string, nodeURL string, walletAddr string, numProcess 
 		CPUModel:         cpuModel(),
 		CPUFeatures:      cpuFeatures(),
 		CPUCores:         fmt.Sprintf("Physical => %d, Logical => %d, Threads/core => %d", cpuid.CPU.PhysicalCores, cpuid.CPU.LogicalCores, cpuid.CPU.ThreadsPerCore),
-		CPUCaches:        fmt.Sprintf("L2 => %s, L3 => %s", humanize.Bytes(uint64(cpuid.CPU.Cache.L2)), humanize.Bytes(uint64(cpuid.CPU.Cache.L3))),
+		CPUCaches:        fmt.Sprintf("L2 => %s, L3 => %s", humanize.BigIBytes(big.NewInt(int64(cpuid.CPU.Cache.L2))), humanize.BigIBytes(big.NewInt(int64(cpuid.CPU.Cache.L3)))),
 		NodeURL:          nodeURL,
 		conn:             buildConn(nodeURL, true),
 		sendChan:         make(chan *types.MessageResponse),

@@ -52,7 +52,7 @@ func NewClient(clientName string, nodeURL string, walletAddr string, numProcess 
 		CPUCores:         fmt.Sprintf("Physical => %d, Logical => %d, Threads/core => %d", cpuid.CPU.PhysicalCores, cpuid.CPU.LogicalCores, cpuid.CPU.ThreadsPerCore),
 		CPUCaches:        fmt.Sprintf("L2 => %s, L3 => %s", humanize.Bytes(uint64(cpuid.CPU.Cache.L2)), humanize.Bytes(uint64(cpuid.CPU.Cache.L3))),
 		NodeURL:          nodeURL,
-		conn:             buildConn(nodeURL, false),
+		conn:             buildConn(nodeURL, true),
 		sendChan:         make(chan *types.MessageResponse),
 		MinerID:          minerID,
 		Address:          walletAddr,

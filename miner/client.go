@@ -83,35 +83,35 @@ func cpuFeatures() string {
 
 	cpuFeaturesBuffer.WriteString("SSE:")
 	if cpuid.CPU.Has(cpuid.SSE) {
-		cpuFeaturesBuffer.WriteString("[✔]")
+		cpuFeaturesBuffer.WriteString("[+]")
 	} else {
 		cpuFeaturesBuffer.WriteString("[-]")
 	}
 
 	cpuFeaturesBuffer.WriteString(", SSE2:")
 	if cpuid.CPU.Has(cpuid.SSE2) {
-		cpuFeaturesBuffer.WriteString("[✔]")
+		cpuFeaturesBuffer.WriteString("[+]")
 	} else {
 		cpuFeaturesBuffer.WriteString("[-]")
 	}
 
 	cpuFeaturesBuffer.WriteString(", SSE4:")
 	if cpuid.CPU.Has(cpuid.SSE4) {
-		cpuFeaturesBuffer.WriteString("[✔]")
+		cpuFeaturesBuffer.WriteString("[+]")
 	} else {
 		cpuFeaturesBuffer.WriteString("[-]")
 	}
 
 	cpuFeaturesBuffer.WriteString(", AVX:")
 	if cpuid.CPU.Has(cpuid.AVX) {
-		cpuFeaturesBuffer.WriteString("[✔]")
+		cpuFeaturesBuffer.WriteString("[+]")
 	} else {
 		cpuFeaturesBuffer.WriteString("[-]")
 	}
 
 	cpuFeaturesBuffer.WriteString(", AVX2:")
 	if cpuid.CPU.Has(cpuid.AVX2) {
-		cpuFeaturesBuffer.WriteString("[✔]")
+		cpuFeaturesBuffer.WriteString("[+]")
 	} else {
 		cpuFeaturesBuffer.WriteString("[-]")
 	}
